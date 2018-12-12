@@ -3,9 +3,9 @@ Exam 1, problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
-
+         and Zhicheng Kai.
+"""  # DO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
@@ -44,6 +44,40 @@ def test_factor_sum():
     ###########################################################################
     # WRITE YOUR TESTS BELOW HERE:
     ###########################################################################
+    # Test 1:
+    expected = 1
+    actual = factor_sum(1)
+    print()
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 2:
+    expected = 7
+    actual = factor_sum(4)
+    print()
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 3:
+    expected = 4
+    actual = factor_sum(9)
+    print()
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 4:
+    expected = 9
+    actual = factor_sum(10)
+    print()
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 5:
+    expected = 6
+    actual = factor_sum(8)
+    print()
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
 
 def factor_sum(n):
@@ -70,6 +104,12 @@ def factor_sum(n):
 
        *** ASK FOR AN EXPLANATION IF YOU DO NOT UNDERSTAND THE ABOVE. ***
     """
+    total = 0
+    for k in range(n):
+        if n%(k+1) == 0:
+            total = total + (k+1)
+            s = sum_of_digits(total)
+    return s
     ###########################################################################
     #  This function is PURPOSELY implemented INCORRECTLY (it just returns 0).
     #  DO NOT IMPLEMENT  factor_sum.  Just leave it as it is (returning 0).
@@ -78,3 +118,5 @@ def factor_sum(n):
     ###########################################################################
     # DO NOT modify the above line of code!
     ###########################################################################
+main()
+

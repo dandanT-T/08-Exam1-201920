@@ -3,8 +3,8 @@ Exam 1, problem 4.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Zhicheng Kai.
+"""  # DO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -67,8 +67,24 @@ def problem4(number_of_stairs, step_size, starting_point, window):
       :type starting_point:    rg.Point
       :type window:            rg.RoseWindow
     """
+    for k in range (number_of_stairs):
+        starting_point.attach_to(window)
+        linehleft = rg.Point(starting_point.x + k*step_size, starting_point.y-step_size*(k+1))
+        linehright = rg.Point(starting_point.x+(k+1)*step_size,starting_point.y-step_size*(k+1))
+        lineh = rg.Line(linehleft,linehright)
+        lineh.thickness = 3
+        linevb = rg.Point(starting_point.x + k*step_size, starting_point.y - step_size*(k))
+        linevu = rg.Point(starting_point.x + k*step_size, starting_point.y-step_size*(k+1))
+        linev = rg.Line(linevb,linevu)
+        linev.thickness = 3
+        linev.color = 'magenta'
+        lineh.attach_to(window)
+        linev.attach_to(window)
+        ending_point = rg.Point(starting_point.x + number_of_stairs * step_size, starting_point.y + number_of_stairs * step_size)
+        ending_point.attach_to(window)
+    window.render()
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DO: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # IMPORTANT: For PARTIAL CREDIT, you can draw just the black "bottoms"
     #            of the stair steps.
